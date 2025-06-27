@@ -1,10 +1,10 @@
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
 
-const TodoList = ({todos}) => { // props todos 받아옴
+const TodoList = ({todos}) => { // props로 받아온 상태 todos 배열 
   return (
     <div className="TodoList">
-      {todos.map( todo => (
+      {todos.map(todo => (
         <TodoListItem todo={todo} key={todo.id} />
       ))}
     </div>
