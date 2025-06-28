@@ -22,9 +22,30 @@ const App = () => {
     },
   ]);
 
+  //checked toggle
+  const onToggle = useCallback(
+    id => {
+      setTodos(
+        todos.map(todo => 
+          todo.id === id ? {...todo, checked : !todo.checked} : todo,
+        )
+      )
+    },
+    [todos]
+  )
+
+  // 목록 삭제 메서드
+  const onRemove = useCallback(
+    id => {
+      setTodos(todos.filter(todo => todo.id !== id))
+    },
+    [todos]
+  )
+
   // useRef = 렌더링에 상관 없고, 단순히 리스트에 번호를 메기기 위한 것
-  // 
   const nextId = useRef(4);
+
+  // TodoInsert 컴포넌트에서 상태를 업데이트 함
   const onInsert = useCallback(
     text => {
       const todo = {
@@ -40,13 +61,9 @@ const App = () => {
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert}/>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}/>
     </TodoTemplate>
   )
 }
-
 export default App;
 
-// todos = 각 할일의 정보를 객체에 담은 배열, state 
-// todoList의 props.todos로 todos 상태 전달
-// todoList에선 받아온 props 값으로 TodoItem으로 변환 후 렌더링 됨

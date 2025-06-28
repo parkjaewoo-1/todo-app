@@ -1,13 +1,14 @@
 import TodoListItem from './TodoListItem';
 import './TodoList.scss';
 
-const TodoList = ({todos}) => { // props로 받아온 상태 todos 배열 
+const TodoList = ({todos, onRemove, onToggle}) => { // props로 받아온 상태 todos 배열, onRemove 함수
   return (
     <div className="TodoList">
       {todos.map(todo => (
-        <TodoListItem todo={todo} key={todo.id} />
+        <TodoListItem todo={todo} key={todo.id} onRemove={onRemove} onToggle={onToggle}/>
       ))}
     </div>
+    // TodoListItem 컴포넌트에서 사용하기 위해서 props로 받아온 함수를 그대로 넘겨 준다
   )
 }
 
