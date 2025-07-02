@@ -27,3 +27,5 @@ export default React.memo(TodoListItem);
 
 // 각 할일 항목에 대한 정보
 // todo 객체를 props로 받아와서 상태에 따라 다른 스타일의 ui 렌더링
+
+// TodoList로 받은 style을 virtualized의 스타일로 적용

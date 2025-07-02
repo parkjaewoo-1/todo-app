@@ -25,6 +25,7 @@ const TodoInsert = ({onInsert}) => {
         placeholder="할 일을 입력하세요"
         value={value}
         onChange={onChange}
+        name='todos'
       />
       <button type="submit">
         <MdAdd />

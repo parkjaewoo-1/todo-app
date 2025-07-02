@@ -8,7 +8,6 @@ const TodoList = ({todos, onRemove, onToggle}) => { // props로 받아온 상태
   const rowRenderer = useCallback(
     ({index, key, style}) => {
       const todo = todos[index];
-
       return (
         <TodoListItem
         todo={todo}
@@ -21,6 +20,10 @@ const TodoList = ({todos, onRemove, onToggle}) => { // props로 받아온 상태
     },
     [onRemove, todos, onToggle]
   );
+
+  /*
+    rowRenderer의 style파라미터 : 렌더의 List 컴포넌트 안에 정의 된 inline-style이 넘어감
+  */
 
   return (
     <List
